@@ -209,3 +209,14 @@ List = ["rat", "art", "toni", "nito", "ball"]
 two_solution = Solution()
 print(two_solution.group_anagrams(List))
 
+q = {"Name": "Antony", "Age": 29}
+print(q.get("Name"))
+print(q.keys()) # Return a list of all the keys in dictionary.
+print(q.values()) #Return a list of all values in a dictionary.
+print(q.update({"Height": 6})) #Update a dictionary with a specified key value
+print(q.items()) #Convert the key values as tuples and return an iterable (list)
+print(q.setdefault("PIN", 573893)) #Returns the value of the key specified. If the key is not present, then adds the key (1st argument) and the value (argument) provided through this method.
+print(q.pop("Name")) #Remove the value and key whose keys are passed in the argument
+t = { "name": "Tonito", "Hobby": "Football"}
+print(t.popitem()) # Remove the last inserted key value pair and return it as a tuple
+print(q.clear()) # Remove all items in a dictionary
