@@ -1,7 +1,6 @@
 from collections import defaultdict
 
-from select import select
-
+import heapq
 
 class Solution:
     def group_Anagrams(self, strs:list) -> list[list[str]]:
@@ -97,4 +96,15 @@ t = { "name": "Tonito", "Hobby": "Football"}
 print(t.popitem()) # Remove the last inserted key value pair and return it as a tuple
 print(q.clear()) # Remove all items in a dictionary
 
-
+#Working wing Heap
+heaplist = [3, 65, 6,345, 7,66, 54, 234, 654, 66, 43, 23, 25, 325]
+heapq.heapify(heaplist) #Transforms the list x into a heap, in-place, in linear time.
+print(heaplist)
+print(heapq.heappop(heaplist)) #ops and returns the smallest item from the heap, maintaining the heap property. Raises IndexError if the heap is empty.
+print(heapq.heapreplace(heaplist, 44)) #Pops and returns the smallest item from the heap, then pushes the item onto the heap. The heap size remains the same.
+print(heaplist)
+print(heapq.heappush(heaplist, 400)) #Pushes the item onto the heap, maintaining the heap property.
+print(heaplist)
+print(heapq.heappushpop(heaplist, 500)) #Pushes the item onto the heap, then pops and returns the smallest item from the heap.
+print(heapq.nlargest(2, heaplist)) #Returns a list with the n largest elements from the dataset defined by iterable. The key parameter can specify a function to extract a comparison key from each element.
+print(heapq.nsmallest(3, heaplist)) #Returns a list with the n smallest elements from the dataset defined by iterable. The key parameter can specify a function to extract a comparison key from each element.
