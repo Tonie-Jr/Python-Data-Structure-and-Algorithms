@@ -226,6 +226,7 @@ import heapq
 heaplist = [3, 65, 6,345, 7,66, 54, 234, 654, 66, 43, 23, 25, 325]
 heapq.heapify(heaplist) #Transforms the list x into a heap, in-place, in linear time.
 print(heaplist)
+print(heaplist[:])
 print(heapq.heappop(heaplist)) #ops and returns the smallest item from the heap, maintaining the heap property. Raises IndexError if the heap is empty.
 print(heapq.heapreplace(heaplist, 44)) #Pops and returns the smallest item from the heap, then pushes the item onto the heap. The heap size remains the same.
 print(heaplist)
@@ -234,3 +235,16 @@ print(heaplist)
 print(heapq.heappushpop(heaplist, 500)) #Pushes the item onto the heap, then pops and returns the smallest item from the heap.
 print(heapq.nlargest(2, heaplist)) #Returns a list with the n largest elements from the dataset defined by iterable. The key parameter can specify a function to extract a comparison key from each element.
 print(heapq.nsmallest(3, heaplist)) #Returns a list with the n smallest elements from the dataset defined by iterable. The key parameter can specify a function to extract a comparison key from each element.
+l1 = [3, 54, 6, 5, 4 , 6, 7, 67, 888, 76, 7, 467]
+# Max heap
+heapq._heapify_max(l1) # Returns the list max heap where the root of the heap is the largest element in the list.
+negated_l1 = [-x for x in l1] #Negate the list so that we can do max heap
+heapq.heapify(negated_l1)#Heapifies the list and returns a max heap.
+print(negated_l1)
+
+print(l1)
+l2 = [35,55, 66, 67, 88, 92, 91]
+heapified = heapq.merge(l1, l2) #Merges the two lists and returns heapfied list.
+print(list(heapified))
+
+
