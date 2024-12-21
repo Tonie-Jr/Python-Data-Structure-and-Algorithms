@@ -292,3 +292,29 @@ class Solution:
 List5, k = [3, 54, 55, 54, 66, 55, 6, 6, 6, 76, 76, 76, 76, 66], 3
 Topkfrequent = Solution()
 print(Topkfrequent.topkFrequent(List5, k))
+
+class Dog:
+    Species = "Canine"  # Class attribute
+
+    def __init__(self, name, age):
+        self.name = name  # Instance attribute
+        self.age = age  # Instance attribute
+
+dog1 = Dog("Bobby", 3)  # Creating an object
+print(dog1.name)  # printing the Object's name.
+print(dog1.age)  # printing the object's age.
+
+
+class Dog:
+    Species = "Canine" #Class attribute
+    def __init__(self, name, age):
+        self.name = name # Instance attribute
+        self.age = age # Instance attribute
+
+    def __str__(self):
+        return f"{self.name} is {self.age} years old." #Correct: returning of a string.
+
+dog1 = Dog("Bobby", 3) #Creating an object
+dog2 = Dog("Charlie", 5) #Creating an object
+print(dog1) #printing the Object.
+print(dog2) #printing the object.
