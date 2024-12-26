@@ -1,5 +1,9 @@
 #ARRAYS AND HASHING
 # @1 Contains Duplicate
+from operator import length_hint
+from shelve import Shelf
+
+
 class Solution:
     def hasDuplicate1(self, nums: list[int]) -> bool:
         for i in range(len(nums)):
@@ -344,3 +348,27 @@ class Emp(Person):
 
 employee_details = Emp("Antony", 5432345)
 print(employee_details.Print())
+
+# Polymorphism and inheritance
+class Shapes:
+    def area(self):
+        return "Undefined"
+
+class Rectangle(Shapes):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+class Circle(Shapes):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.142 * self.radius**2
+
+shapes = [Rectangle(45, 64), Circle(56)]
+for shape in shapes:
+    print(f"Area: {shape.area()} ")
