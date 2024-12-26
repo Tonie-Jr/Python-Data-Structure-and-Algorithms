@@ -318,3 +318,29 @@ dog1 = Dog("Bobby", 3) #Creating an object
 dog2 = Dog("Charlie", 5) #Creating an object
 print(dog1) #printing the Object.
 print(dog2) #printing the object.
+
+
+lass Animal:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        pass
+class Dog1(Animal): #Child inheriting from the parent class Animal.
+    def speak(self):
+        return f"{self.name} barks"
+dog = Dog1("Buddy")
+print(dog.speak())
+
+class Person(object):
+    def __init__(self, name, id):
+        self.name = name
+        self.id = id
+    def Display(self):
+        print(self.name, self.id)
+
+class Emp(Person):
+    def Print(self):
+        print()
+
+employee_details = Emp("Antony", 5432345)
+print(employee_details.Print())
