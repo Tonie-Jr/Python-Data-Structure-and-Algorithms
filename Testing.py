@@ -1,121 +1,70 @@
-import heapq
+from numpy.testing.print_coercion_tables import print_new_cast_table
 
-from pandas.core.internals.blocks import ObjectBlock
+from Data_structures_and_algorithms_neetcode import Animal
 
-
-class Solution:
-    def topKFrequent(self, nums:list[int], K:int) -> list[int]:
-        count = {}
-        for num in nums:
-            count[num] = 1 + count.get(num, 0)
-
-        arr = []
-        for num, cnt in count.items():
-            arr.append([cnt, num])
-        arr.sort()
-
-        res = []
-        while len(res) < K:
-            res.append(arr.pop()[1])
-        return res
-
-my_list1, K = [4, 65, 6, 91, 91, 88, 86, 87, 86, 86, 2, 2, 2, 2, 432,], 3
-topfrequent = Solution()
-print(topfrequent.topKFrequent(my_list1, 3))
-
-class Solution:
-    def topkFrequent(self, nums: list[int], k:int)-> list[int]:
-        count1 = {}
-        for num in nums:
-            count1[num] = 1 + count1.get(num, 0)
-
-        heap = []
-        for num in count1.keys():
-            heapq.heappush(heap, (count1[num], num))
-            if len(heap) > k:
-                heapq.heappop(heap)
-
-        res = []
-        for i in range(k):
-            res.append(heapq.heappop(heap)[1])
-        return res
-
-List5, k = [3, 54, 55,54, 66,55, 6, 6, 6, 76, 76, 76, 76, 66], 3
-Topkfrequent = Solution()
-print(Topkfrequent.topkFrequent(List5, k))
-
-
-class Dog:
-    Species = "Canine"  # Class attribute
-
-    def __init__(self, name, age):
-        self.name = name  # Instance attribute
-        self.age = age  # Instance attribute
-
-dog1 = Dog("Bobby", 3)  # Creating an object
-print(dog1.name)  # printing the Object's name.
-print(dog1.age)  # printing the object's age.
-
-
-class Dog:
-    Species = "Canine" #Class attribute
-    def __init__(self, name, age):
-        self.name = name # Instance attribute
-        self.age = age # Instance attribute
-
-    def __str__(self):
-        return f"{self.name} is {self.age} years old." #Correct: returning of a string.
-
-dog1 = Dog("Bobby", 3) #Creating an object
-dog2 = Dog("Charlie", 5) #Creating an object
-print(dog1) #printing the Object.
-print(dog2) #printing the object.
 
 class Animal:
-    def __init__(self, name):
-        self.name = name
-    def speak(self):
+    def sound(self):
+        return "Make some generic sound"
+
+class Dog(Animal):
+    def sound(self):
+        return "Bark"
+
+class Cat(Animal):
+    def sound(self):
+        return "Meow"
+
+animals = [Dog(), Cat(), Animal()]
+for animal in animals:
+    print(animal.sound())
+
+
+#Python Data Abstraction
+from abc import ABC, abstractmethod #Importing ABC and abstract method
+class Car(ABC):
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+
+    @abstractmethod
+    def PrintDetails(self): #Creating an abstract method
         pass
-class Dog1(Animal): #Child inheriting from the parent class Animal.
-    def speak(self):
-        return f"{self.name} barks"
-dog = Dog1("Buddy")
-print(dog.speak())
 
-class Person(object):
-    def __init__(self, name, id):
-        self.name = name
-        self.id = id
-    def Display(self):
-        print(self.name, self.id)
+    def accelerate(self): #Creating a concrete method
+        print("speed up...")
+    def breaks_applied(self):
+        print("Car stopped")
 
-class Emp(Person):
-    def Print(self):
-        print()
+class Hatchback(Car): #Creating a child class
+    def PrintDetails(self):
+        print("Brand: ", self.brand)
+        print("Model: ", self.model)
+        print("Year :", self.year)
 
-employee_details = Emp("Antony", 5432345)
-print(employee_details.Print())
+    def sunroof(self):
+        print("Not having this feature.")
 
-# Polymorphism and inheritance
-class Shapes:
-    def area(self):
-        return "Undefined"
+class Suv(Car): #Creating a child class
+    def PrintDetails(self):
+        print("Brand: ", self.brand)
+        print("Model: ", self.model)
+        print("Year :", self.year)
 
-class Rectangle(Shapes):
-    def __init__(self, length, width):
-        self.length = length
-        self.width = width
+    def sunroof(self):
+        print("Available")
 
-    def area(self):
-        return self.length * self.width
+car1 = Hatchback("Maruti", "Alto", "2022")
+print(car1.PrintDetails())
+print(car1.sunroof())
 
-class Circle(Shapes):
-    def __init__(self, radius):
-        self.radius = radius
 
-    def area(self):
-        return 3.142 * self.radius**2
+car2 = Suv("Mazda", "cx 5", "2025")
+print(car2.PrintDetails())
+print(car2.sunroof())
 
-shapes = [Rectangle(45, 64), Circle(56)]
-for shape in shapes:
-    print(f"Area: {shape.area()} ")
+
+
+
+
